@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Calendar App</string>
+    <string name="calendar_settings">Settings</string>
+    <string name="calendar_view">View</string>
+
+    <string name="day_view">Daily</string>
+    <string name="week_view">Weekly</string>
+    <string name="month_view">Monthly</string>
 </resources>
