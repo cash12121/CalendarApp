@@ -9,5 +9,10 @@
     <item android:id="@+id/calendar_view"
         android:title="@string/calendar_view"
         android:icon="@drawable/ic_action_calendar_day"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom">
+        <menu>
+            <item android:id="@+id/day_item"
+                android:title="Day View"/>
+        </menu>
+    </item>
 </menu>
