@@ -2,6 +2,7 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item android:id="@+id/calendar_settings"
         android:title="@string/calendar_settings"
         app:showAsAction="never"/>
@@ -10,9 +11,16 @@
         android:title="@string/calendar_view"
         android:icon="@drawable/ic_action_calendar_day"
         app:showAsAction="ifRoom">
+
         <menu>
             <item android:id="@+id/day_item"
-                android:title="Day View"/>
+                android:title="@string/day_view"/>
+            <item android:id="@+id/week_item"
+                android:title="@string/week_view"/>
+            <item android:id="@+id/month_item"
+                android:title="@string/month_view"/>
         </menu>
+
     </item>
+
 </menu>

@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/Theme.Menu" />
 
-    //Month view setup
+    <!--Month view setup-->
 
     <TextView
         android:id="@+id/date_view"
@@ -45,7 +45,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_view"></CalendarView>
+        app:layout_constraintTop_toBottomOf="@+id/date_view">
+    </CalendarView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
