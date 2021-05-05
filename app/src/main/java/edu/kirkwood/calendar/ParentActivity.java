@@ -7,15 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Lifecycle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import android.view.View;
 
 
 public class ParentActivity extends AppCompatActivity {
-    private static boolean isDayActivityVisible;
-    private static boolean isMonthActivityVisible;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +27,9 @@ public class ParentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.calendar_settings:
-                // User chose the "Settings" item, show the app settings UI
-                return true;
+            case R.id.cancel:
+                openMonthActivity();
             case R.id.add_event:
-                // Stuff
                 if(ir == 3){
                     return true;
                 }
@@ -50,7 +42,7 @@ public class ParentActivity extends AppCompatActivity {
                 if(ir == 1){
                     openDayActivity();
                 }
-                else if(ir == 2 || ir == 3){
+                else if(ir == 2){
                     openMonthActivity();
                 }
                 else{
