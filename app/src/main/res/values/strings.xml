@@ -6,4 +6,90 @@
     <string name="day_view">Daily</string>
     <string name="week_view">Weekly</string>
     <string name="month_view">Monthly</string>
+
+    <string-array name="year_array">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+    </string-array>
+
+    <string-array name="month_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="day_array">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+
+    <string-array name="hour_array">
+        <item>12am</item>
+        <item>01am</item>
+        <item>02am</item>
+        <item>03am</item>
+        <item>04am</item>
+        <item>05am</item>
+        <item>06am</item>
+        <item>07am</item>
+        <item>08am</item>
+        <item>09am</item>
+        <item>10am</item>
+        <item>11am</item>
+        <item>12pm</item>
+        <item>01pm</item>
+        <item>02pm</item>
+        <item>03pm</item>
+        <item>04pm</item>
+        <item>05pm</item>
+        <item>06pm</item>
+        <item>07pm</item>
+        <item>08pm</item>
+        <item>09pm</item>
+        <item>10pm</item>
+        <item>11pm</item>
+    </string-array>
+
 </resources>

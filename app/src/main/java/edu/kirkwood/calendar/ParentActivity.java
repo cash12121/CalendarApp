@@ -19,7 +19,12 @@ public class ParentActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_element, menu);
+        if(ir != 3) {
+            getMenuInflater().inflate(R.menu.menu_element, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.menu_event, menu);
+        }
         return true;
     }
 
@@ -28,7 +33,12 @@ public class ParentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cancel:
-                openMonthActivity();
+                if(ir == 3) {
+                    openMonthActivity();
+                }
+                else{
+                    return true;
+                }
             case R.id.add_event:
                 if(ir == 3){
                     return true;
@@ -56,6 +66,7 @@ public class ParentActivity extends AppCompatActivity {
 
         }
     }
+    //Used to test which activity is currently running
     public int ir;
     public void onRunning(int isRunning){
          ir = isRunning;
