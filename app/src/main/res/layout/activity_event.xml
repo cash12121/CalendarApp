@@ -44,93 +44,85 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/add_event"
         app:layout_constraintTop_toBottomOf="@id/add_event"/>
-    <TextView
-        android:id="@+id/start_time"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="20dp"
-        android:text=" Start Time"
-        android:textColor="@color/red"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/event_title"
-        app:layout_constraintTop_toBottomOf="@+id/event_title"/>
-    <TextView
-        android:id="@+id/year_title_s"
-        android:text="Year"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toStartOf="@id/start_time"
-        app:layout_constraintTop_toBottomOf="@id/start_time"/>
-    <TextView
-        android:id="@+id/month_title_s"
-        android:text="Month"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toEndOf="@id/year_title_s"
-        app:layout_constraintTop_toBottomOf="@id/start_time"/>
-    <TextView
-        android:id="@+id/day_title_s"
-        android:text="Day"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toEndOf="@id/month_title_s"
-        app:layout_constraintTop_toBottomOf="@id/start_time"/>
-    <TextView
-        android:id="@+id/hour_title_s"
-        android:text="Hour"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toEndOf="@id/day_title_s"
-        app:layout_constraintTop_toBottomOf="@id/start_time"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/event_title">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"
+                android:text=" Start Time"
+                android:textColor="@color/red"
+                app:layout_constraintTop_toBottomOf="@+id/event_title"/>
+            <TextView
+                android:id="@+id/date_view_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Set Start Date"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/calendar_start"
+                app:layout_constraintTop_toBottomOf="@+id/start_time" />
 
+            <CalendarView
+                android:id="@+id/calendar_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/date_view_start">
+            </CalendarView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"
+                android:text=" End Time"
+                android:textColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/event_title"
+                app:layout_constraintTop_toBottomOf="@+id/event_title"/>
+            <TextView
+                android:id="@+id/date_view_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Set End Date"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/calendar_end"
+                app:layout_constraintTop_toBottomOf="@+id/end_time" />
 
-
-    <Spinner
-        android:id="@+id/year_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/year_title_s"
-        app:layout_constraintTop_toBottomOf="@id/year_title_s"/>
-    <Spinner
-        android:id="@+id/month_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/month_title_s"
-        app:layout_constraintTop_toBottomOf="@id/year_title_s"/>
-    <Spinner
-        android:id="@+id/day_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/day_title_s"
-        app:layout_constraintTop_toBottomOf="@id/year_title_s"/>
-    <Spinner
-        android:id="@+id/hour_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/hour_title_s"
-        app:layout_constraintTop_toBottomOf="@id/year_title_s"/>
-
-
+            <CalendarView
+                android:id="@+id/calendar_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/date_view_end">
+            </CalendarView>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
