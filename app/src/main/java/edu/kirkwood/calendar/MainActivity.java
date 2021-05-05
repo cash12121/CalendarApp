@@ -29,4 +29,9 @@ public class MainActivity extends ParentActivity {
             }
         });
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+        onRunning(1);
+    }
 }

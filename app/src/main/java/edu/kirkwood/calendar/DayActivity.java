@@ -10,4 +10,9 @@ public class DayActivity extends ParentActivity {
         setContentView(R.layout.activity_day);
         openParentTools();
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+        onRunning(2);
+    }
 }
