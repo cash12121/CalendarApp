@@ -13,4 +13,9 @@ public class EventActivity extends ParentActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+        onRunning(3);
+    }
 }

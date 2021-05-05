@@ -7,16 +7,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Lifecycle;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.view.View;
 
 
 public class ParentActivity extends AppCompatActivity {
+    private static boolean isDayActivityVisible;
+    private static boolean isMonthActivityVisible;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         openParentTools();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -31,17 +36,26 @@ public class ParentActivity extends AppCompatActivity {
             case R.id.calendar_settings:
                 // User chose the "Settings" item, show the app settings UI
                 return true;
+            case R.id.add_event:
+                // Stuff
+                if(ir == 3){
+                    return true;
+                }
+                else {
+                    openEventActivity();
+                }
+                return true;
             case R.id.calendar_view:
                 // User chose the "View" item, show the calendar view select UI
-                return true;
-            case R.id.day_item:
-                // User chose "Day View" under the calendar view submenu
-                openDayActivity();
-                return true;
-            case R.id.month_item:
-                // User chose "Month View" under the calendar view submenu
-                openMonthActivity();
-                return true;
+                if(ir == 1){
+                    openDayActivity();
+                }
+                else if(ir == 2 || ir == 3){
+                    openMonthActivity();
+                }
+                else{
+                    return true;
+                }
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -50,17 +64,14 @@ public class ParentActivity extends AppCompatActivity {
 
         }
     }
+    public int ir;
+    public void onRunning(int isRunning){
+         ir = isRunning;
+    }
 
     public void openParentTools() {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openEventActivity();
-            }
-        });
     }
 
     // Method to create an Intent to open DayActivity
