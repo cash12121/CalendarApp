@@ -15,7 +15,7 @@ public class EventActivity extends ParentActivity {
     TextView date_view_end;
     TextView time_view_start;
     TextView time_view_end;
-    //Defining CalendarView and Textview
+    //Defining CalendarView and TextView
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class EventActivity extends ParentActivity {
             @Override
             public void onTimeChanged(@NonNull TimePicker timePicker, int hour, int min){
                 String TimeE = " / " + hour + ":" + min;
-                time_view_start.setText(TimeE);
+                time_view_end.setText(TimeE);
             }
         });
     }
