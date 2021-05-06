@@ -47,7 +47,7 @@ public class EventActivity extends ParentActivity {
         });
 
         TimePicker pickerE = (TimePicker)findViewById(R.id.time_picker_end);
-        pickerS.setIs24HourView(true);
+        pickerE.setIs24HourView(true);
         //Getting CalendarView and TextView variables
         calendar_end = (CalendarView) findViewById(R.id.calendar_end);
         date_view_end = (TextView) findViewById(R.id.date_view_end);
