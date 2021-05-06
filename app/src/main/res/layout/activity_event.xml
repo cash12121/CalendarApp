@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/event_title">
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center">
@@ -65,7 +65,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:textSize="20dp"
-                android:text=" Start Time"
+                android:text="Start"
                 android:textColor="@color/red"
                 app:layout_constraintTop_toBottomOf="@+id/event_title"/>
             <TextView
@@ -74,18 +74,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Set Start Date"
+                android:text="Start Date"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/time_picker_end"
                 app:layout_constraintBottom_toTopOf="@+id/calendar_start"
                 app:layout_constraintTop_toBottomOf="@+id/start_time" />
-
+            <TextView
+                android:id="@+id/time_view_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Start Time"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/date_view_start"
+                app:layout_constraintBottom_toTopOf="@+id/calendar_start"
+                app:layout_constraintTop_toBottomOf="@+id/start_time"/>
             <CalendarView
                 android:id="@+id/calendar_start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/date_view_start">
             </CalendarView>
+            <TimePicker
+                android:id="@+id/time_picker_start"
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:timePickerMode="spinner" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -100,7 +117,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:textSize="20dp"
-                android:text=" End Time"
+                android:text="End"
                 android:textColor="@color/red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/event_title"
@@ -111,21 +128,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Set End Date"
+                android:text="End Date"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/calendar_end"
                 app:layout_constraintTop_toBottomOf="@+id/end_time" />
-
+            <TextView
+                android:id="@+id/time_view_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="End Time"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/date_view_end"
+                app:layout_constraintBottom_toTopOf="@+id/calendar_end"
+                app:layout_constraintTop_toBottomOf="@+id/end_time"/>
             <CalendarView
                 android:id="@+id/calendar_end"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/date_view_end">
             </CalendarView>
+            <TimePicker
+                android:id="@+id/time_picker_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"/>
         </LinearLayout>
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,9 @@
         android:icon="@drawable/ic_action_cancel"
         app:showAsAction="ifRoom"/>
 
+    <item android:id="@+id/confirm"
+        android:title="Confirm"
+        android:icon="@drawable/ic_action_tick"
+        app:showAsAction="ifRoom"/>
+
 </menu>

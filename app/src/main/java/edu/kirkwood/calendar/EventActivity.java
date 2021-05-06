@@ -1,10 +1,12 @@
 package edu.kirkwood.calendar;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.TextView;
-
+import android.widget.TimePicker;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 public class EventActivity extends ParentActivity {
     //Defining CalendarView and Textview
@@ -12,6 +14,9 @@ public class EventActivity extends ParentActivity {
     CalendarView calendar_end;
     TextView date_view_start;
     TextView date_view_end;
+    TextView time_view_start;
+    TextView time_view_end;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +31,18 @@ public class EventActivity extends ParentActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 //Stores the value of the date in a formatted String
                 //Adding 1 in month because index starts with 0
-                String Date = dayOfMonth + "-" + (month+1) + "-" + year;
+                String DateS = dayOfMonth + "-" + (month+1) + "-" + year;
                 //Set date in TextView, ie display
-                date_view_start.setText(Date);
+                date_view_start.setText(DateS);
             }
         });
+        TimePicker pickerS=(TimePicker)findViewById(R.id.time_picker_start);
+        pickerS.setIs24HourView(true);
+        int hourS = pickerS.getHour();
+        int minS = pickerS.getMinute();
+        String TimeS = hourS + ":" + minS;
+        time_view_start.setText(TimeS);
+
         //Getting CalendarView and TextView variables
         calendar_end = (CalendarView) findViewById(R.id.calendar_end);
         date_view_end = (TextView) findViewById(R.id.date_view_end);
@@ -40,11 +52,17 @@ public class EventActivity extends ParentActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 //Stores the value of the date in a formatted String
                 //Adding 1 in month because index starts with 0
-                String Date = dayOfMonth + "-" + (month+1) + "-" + year;
+                String DateE = dayOfMonth + "-" + (month+1) + "-" + year;
                 //Set date in TextView, ie display
-                date_view_end.setText(Date);
+                date_view_end.setText(DateE);
             }
         });
+        TimePicker pickerE=(TimePicker)findViewById(R.id.time_picker_end);
+        pickerE.setIs24HourView(true);
+        int hourE = pickerS.getHour();
+        int minE = pickerS.getMinute();
+        String TimeE = hourE + ":" + minE;
+        time_view_end.setText(TimeE);
     }
 
     @Override

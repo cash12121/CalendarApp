@@ -32,6 +32,13 @@ public class ParentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.confirm:
+                if(ir == 3) {
+                    openMonthActivity();
+                }
+                else{
+                    return true;
+                }
             case R.id.cancel:
                 if(ir == 3) {
                     openMonthActivity();
