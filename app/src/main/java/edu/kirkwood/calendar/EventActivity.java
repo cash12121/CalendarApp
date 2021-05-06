@@ -63,7 +63,7 @@ public class EventActivity extends ParentActivity {
                 date_view_end.setText(DateE);
             }
         });
-        pickerS.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+        pickerE.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(@NonNull TimePicker timePicker, int hour, int min){
                 String TimeE = " / " + hour + ":" + min;

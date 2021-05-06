@@ -65,7 +65,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:textSize="20dp"
-                android:text="Start"
+                android:text="Event   Start"
                 android:textColor="@color/red"
                 app:layout_constraintTop_toBottomOf="@+id/event_title"/>
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:textSize="20dp"
-                android:text="End"
+                android:text="Event   End"
                 android:textColor="@color/red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/event_title"
