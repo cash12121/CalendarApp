@@ -14,8 +14,6 @@ public class EventActivity extends ParentActivity {
     CalendarView calendar_end;
     TextView date_view_start;
     TextView date_view_end;
-    TextView time_view_start;
-    TextView time_view_end;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +30,15 @@ public class EventActivity extends ParentActivity {
                 //Stores the value of the date in a formatted String
                 //Adding 1 in month because index starts with 0
                 String DateS = dayOfMonth + "-" + (month+1) + "-" + year;
+                TimePicker pickerS=(TimePicker)findViewById(R.id.time_picker_start);
+                pickerS.setIs24HourView(true);
+                int hourS = pickerS.getHour();
+                int minS = pickerS.getMinute();
+                String TimeS = DateS + " / " + hourS + ":" + minS;
                 //Set date in TextView, ie display
-                date_view_start.setText(DateS);
+                date_view_start.setText(TimeS);
             }
         });
-        TimePicker pickerS=(TimePicker)findViewById(R.id.time_picker_start);
-        pickerS.setIs24HourView(true);
-        int hourS = pickerS.getHour();
-        int minS = pickerS.getMinute();
-        String TimeS = hourS + ":" + minS;
-        time_view_start.setText(TimeS);
 
         //Getting CalendarView and TextView variables
         calendar_end = (CalendarView) findViewById(R.id.calendar_end);
@@ -53,16 +50,15 @@ public class EventActivity extends ParentActivity {
                 //Stores the value of the date in a formatted String
                 //Adding 1 in month because index starts with 0
                 String DateE = dayOfMonth + "-" + (month+1) + "-" + year;
+                TimePicker pickerE=(TimePicker)findViewById(R.id.time_picker_end);
+                pickerE.setIs24HourView(true);
+                int hourE = pickerE.getHour();
+                int minE = pickerE.getMinute();
+                String TimeE = DateE + " / " + hourE + ":" + minE;
                 //Set date in TextView, ie display
-                date_view_end.setText(DateE);
+                date_view_end.setText(TimeE);
             }
         });
-        TimePicker pickerE=(TimePicker)findViewById(R.id.time_picker_end);
-        pickerE.setIs24HourView(true);
-        int hourE = pickerS.getHour();
-        int minE = pickerS.getMinute();
-        String TimeE = hourE + ":" + minE;
-        time_view_end.setText(TimeE);
     }
 
     @Override
