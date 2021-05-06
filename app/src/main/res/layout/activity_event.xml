@@ -123,12 +123,13 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/calendar_end"
                 app:layout_constraintTop_toBottomOf="@+id/end_time" />
+
             <TimePicker
                 android:id="@+id/time_picker_end"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="182dp"
                 android:timePickerMode="spinner"
-                app:layout_constraintTop_toBottomOf="@id/date_view_end"/>
+                app:layout_constraintTop_toBottomOf="@id/date_view_end" />
             <CalendarView
                 android:id="@+id/calendar_end"
                 android:layout_width="match_parent"
