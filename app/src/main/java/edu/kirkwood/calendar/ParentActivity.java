@@ -7,15 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Lifecycle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import android.view.View;
 
 
 public class ParentActivity extends AppCompatActivity {
-    private static boolean isDayActivityVisible;
-    private static boolean isMonthActivityVisible;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +19,12 @@ public class ParentActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_element, menu);
+        if(ir != 3) {
+            getMenuInflater().inflate(R.menu.menu_element, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.menu_event, menu);
+        }
         return true;
     }
 
@@ -33,11 +32,21 @@ public class ParentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.calendar_settings:
-                // User chose the "Settings" item, show the app settings UI
-                return true;
+            case R.id.confirm:
+                if(ir == 3) {
+                    openMonthActivity();
+                }
+                else{
+                    return true;
+                }
+            case R.id.cancel:
+                if(ir == 3) {
+                    openMonthActivity();
+                }
+                else{
+                    return true;
+                }
             case R.id.add_event:
-                // Stuff
                 if(ir == 3){
                     return true;
                 }
@@ -50,7 +59,7 @@ public class ParentActivity extends AppCompatActivity {
                 if(ir == 1){
                     openDayActivity();
                 }
-                else if(ir == 2 || ir == 3){
+                else if(ir == 2){
                     openMonthActivity();
                 }
                 else{
@@ -64,6 +73,7 @@ public class ParentActivity extends AppCompatActivity {
 
         }
     }
+    //Used to test which activity is currently running
     public int ir;
     public void onRunning(int isRunning){
          ir = isRunning;
