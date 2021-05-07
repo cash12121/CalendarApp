@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalendarApp">
-<<<<<<< HEAD
         <activity android:name=".EventActivity"/>
         <activity android:name=".DayActivity"/>
-=======
->>>>>>> 301562b1106858f2596e4936537300ccb1c0c3a5
         <activity android:name=".DayViewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

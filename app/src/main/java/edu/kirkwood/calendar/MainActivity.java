@@ -4,22 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-<<<<<<< HEAD
-=======
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
->>>>>>> 301562b1106858f2596e4936537300ccb1c0c3a5
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-<<<<<<< HEAD
 public class MainActivity extends ParentActivity {
-=======
-public class MainActivity extends AppCompatActivity {
->>>>>>> 301562b1106858f2596e4936537300ccb1c0c3a5
     public static final String SELECTED_DAY = "edu.kirkwood.calendar.DATE";
     //Defining CalendarView and Textview
     CalendarView calendar;
@@ -58,15 +51,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(SELECTED_DAY, dayClicked);
         startActivity(intent);
     }
-<<<<<<< HEAD
-=======
-
-    public void viewDay(View view) {
-        Intent intent = new Intent(this, DayViewActivity.class);
-        Button clicked = new Button(this);
-        String dayClicked = (String) clicked.getText();
-        intent.putExtra(SELECTED_DAY, dayClicked);
-        startActivity(intent);
-    }
->>>>>>> 301562b1106858f2596e4936537300ccb1c0c3a5
 }
