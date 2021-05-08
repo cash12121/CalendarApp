@@ -21,12 +21,14 @@ public class DayViewActivity extends ParentActivity {
     static Button week_day7;
     public DayViewActivity() {
         calendar = Calendar.getInstance();
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
+        openParentTools();
         //Check for intent from week day button clicked
         Intent intent = getIntent();
         String buttonValue = intent.getStringExtra(ParentActivity.SELECTED_DAY);
