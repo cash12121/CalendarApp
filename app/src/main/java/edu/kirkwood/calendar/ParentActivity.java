@@ -87,7 +87,7 @@ public class ParentActivity extends AppCompatActivity {
     // Method to create an Intent to open DayActivity
     // Should only be called if an event listener wants to open this Activity.
     private void openDayActivity() {
-        Intent intent = new Intent(this, DayActivity.class);
+        Intent intent = new Intent(this, DayViewActivity.class);
         startActivity(intent);
     }
     private void openMonthActivity() {
