@@ -87,14 +87,6 @@ public class ParentActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
-    //Method to create an Intent to open DayViewActivity with changed
-    public void viewDay(CharSequence butText) {
-        Intent intent = new Intent(this, DayViewActivity.class);
-        Button clicked = new Button(this);
-        String dayClicked =  (String)butText;
-        intent.putExtra(SELECTED_DAY, dayClicked);
-        startActivity(intent);
-    }
     // Method to create an Intent to open DayActivity
     // Should only be called if an event listener wants to open this Activity.
     private void openDayActivity() {
@@ -107,6 +99,14 @@ public class ParentActivity extends AppCompatActivity {
     }
     private void openEventActivity() {
         Intent intent = new Intent(this, EventActivity.class);
+        startActivity(intent);
+    }
+    //Method to create an Intent to open DayViewActivity with changed
+    public void viewDay(CharSequence butText) {
+        Intent intent = new Intent(this, DayViewActivity.class);
+        Button clicked = new Button(this);
+        String dayClicked =  (String)butText;
+        intent.putExtra(SELECTED_DAY, dayClicked);
         startActivity(intent);
     }
 }

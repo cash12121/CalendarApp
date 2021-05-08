@@ -30,7 +30,6 @@ public class MainActivity extends ParentActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 //Stores the value of the date in a formatted String
                 //Adding 1 in month because index starts with 0
-
                 String Date = dayOfMonth + "-" + (month+1) + "-" + year;
                 //Set date in TextView, ie display
                 date_view.setText(Date);
