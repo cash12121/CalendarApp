@@ -2,16 +2,17 @@ package edu.kirkwood.calendar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-public class DayViewActivity extends AppCompatActivity {
+public class DayViewActivity extends ParentActivity {
     Calendar calendar;
     String dayValue;
-    static Button week_day1;
+    Button week_day1;
     static Button week_day2;
     static Button week_day3;
     static Button selected_week_day4;
@@ -27,10 +28,13 @@ public class DayViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
         //Check for intent from week day button clicked
-        if(getIntent().getExtras() != null) {
-            Intent intent = getIntent();
-            int dayClicked = Integer.parseInt(intent.getStringExtra(MainActivity.SELECTED_DAY));
-            calendar.set(Calendar.DAY_OF_MONTH, dayClicked);
+        Intent intent = getIntent();
+        String buttonValue = intent.getStringExtra(ParentActivity.SELECTED_DAY);
+        if(buttonValue != null){
+            if(buttonValue.length()!=0) {
+                int dayClicked = Integer.parseInt(buttonValue);
+                calendar.set(Calendar.DAY_OF_MONTH, dayClicked);
+            }
         }
         //Setting button text for week day 4, the selected day to view
         dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
@@ -66,6 +70,49 @@ public class DayViewActivity extends AppCompatActivity {
         dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         week_day7 = (Button) findViewById(R.id.week_day7);
         week_day7.setText(dayValue);
+
+        //Setting button listeners
+        week_day1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day1.getText());
+            }
+        });
+        week_day2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day2.getText());
+            }
+        });
+        week_day3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day3.getText());
+            }
+        });
+        week_day5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day5.getText());
+            }
+        });
+        week_day6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day6.getText());
+            }
+        });
+        week_day7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewDay(week_day7.getText());
+            }
+        });
+    }
+    @Override
+    protected void onStart() {
+
+        super.onStart();
     }
 }
 

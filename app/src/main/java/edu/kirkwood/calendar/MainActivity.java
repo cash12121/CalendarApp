@@ -13,7 +13,6 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 public class MainActivity extends ParentActivity {
-    public static final String SELECTED_DAY = "edu.kirkwood.calendar.DATE";
     //Defining CalendarView and Textview
     CalendarView calendar;
     TextView date_view;
@@ -42,13 +41,5 @@ public class MainActivity extends ParentActivity {
     public void onStart(){
         super.onStart();
         onRunning(1);
-    }
-
-    public void viewDay(View view) {
-        Intent intent = new Intent(this, DayViewActivity.class);
-        Button clicked = new Button(this);
-        String dayClicked = (String) clicked.getText();
-        intent.putExtra(SELECTED_DAY, dayClicked);
-        startActivity(intent);
     }
 }
