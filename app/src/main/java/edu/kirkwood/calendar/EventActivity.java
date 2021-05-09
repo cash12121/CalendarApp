@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -151,7 +152,6 @@ public class EventActivity extends ParentActivity {
                 return "JAN";
         }
     }
-
     @Override
     public void onStart(){
         super.onStart();
@@ -195,7 +195,7 @@ public class EventActivity extends ParentActivity {
         timePickerDialog.setTitle("Select Start Time");
         timePickerDialog.show();
     }
-
+  
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSaveClick(View view) {
         String title;
@@ -247,6 +247,5 @@ public class EventActivity extends ParentActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 }

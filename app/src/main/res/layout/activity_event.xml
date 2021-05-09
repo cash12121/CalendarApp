@@ -76,6 +76,7 @@
                 android:textColor="@color/black"
                 style="?android:spinnerStyle"
                 android:onClick="openStartDatePicker"/>
+          
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
