@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
 public class ParentActivity extends AppCompatActivity {
+    public static final String SELECTED_DAY = "edu.kirkwood.calendar.DATE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,11 +87,18 @@ public class ParentActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
-
+    //Method to create an Intent to open DayViewActivity with changed
+    public void viewDay(CharSequence butText) {
+        Intent intent = new Intent(this, DayViewActivity.class);
+        Button clicked = new Button(this);
+        String dayClicked =  (String)butText;
+        intent.putExtra(SELECTED_DAY, dayClicked);
+        startActivity(intent);
+    }
     // Method to create an Intent to open DayActivity
     // Should only be called if an event listener wants to open this Activity.
     private void openDayActivity() {
-        Intent intent = new Intent(this, DayActivity.class);
+        Intent intent = new Intent(this, DayViewActivity.class);
         startActivity(intent);
     }
     private void openMonthActivity() {
