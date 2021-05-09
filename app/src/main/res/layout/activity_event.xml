@@ -83,6 +83,8 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:id="@+id/startTimeButton"
                 android:onClick="openStartTimePicker"
                 android:layout_width="wrap_content"
@@ -127,6 +129,8 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:id="@+id/endTimeButton"
                 android:onClick="openEndTimePicker"
                 android:layout_width="wrap_content"
@@ -140,6 +144,30 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:id="@+id/saveButton"
+                android:onClick="onSaveClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textSize="20sp"
+                android:width="300dp"
+                android:height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                 />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

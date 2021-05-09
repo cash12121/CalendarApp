@@ -4,10 +4,11 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Event {
+public class Event implements Serializable {
     private String title;
     private String description;
     private LocalDateTime startTime;
