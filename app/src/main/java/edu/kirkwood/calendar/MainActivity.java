@@ -13,6 +13,7 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class MainActivity extends ParentActivity {
     //Defining CalendarView and Textview
@@ -26,6 +27,9 @@ public class MainActivity extends ParentActivity {
         openParentTools();
         //Getting CalendarView and TextView variables
         simpleCalendarView = (CalendarView) findViewById(R.id.calendar);
+        //Getting calendar object and setting CalendarView object to Calendar time
+        Calendar cal = getCal();
+        simpleCalendarView.setDate(cal.getTimeInMillis());
         date_view = (TextView) findViewById(R.id.date_view);
         //Setting date listener for the value of DAYS, MONTH, YEARS
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

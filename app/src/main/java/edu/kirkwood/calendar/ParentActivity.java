@@ -22,10 +22,9 @@ public class ParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         openParentTools();
-        if(!cal.isSet(Calendar.DAY_OF_MONTH)) {
+        if(cal == null) {
             cal = Calendar.getInstance();
         }
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
