@@ -1,32 +1,39 @@
 package edu.kirkwood.calendar;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import java.util.Calendar;
 
+import androidx.annotation.RequiresApi;
+
+import java.time.LocalDate;
+import java.util.Calendar;
 public class DayViewActivity extends ParentActivity {
-    Calendar calendar;
-    String dayValue;
+    private String dayValue;
+    private int dayToView;
     Button week_day1;
+    LocalDate date;
     static Button week_day2;
     static Button week_day3;
     static Button selected_week_day4;
     static Button week_day5;
     static Button week_day6;
     static Button week_day7;
-    public DayViewActivity() {
-        calendar = Calendar.getInstance();
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
         openParentTools();
-        //Check for intent from week day button clicked
+        //Gets Calendar object
+        Calendar calendar = Calendar.getInstance();
         Intent intent = getIntent();
+        //Get intent from selected day from month view
+        int dayToView = intent.getIntExtra("dayOfMonth", calendar.get(Calendar.DAY_OF_MONTH));
+        calendar.set(Calendar.DAY_OF_MONTH, dayToView);
+        //Check for intent from week day button clicked
         String buttonValue = intent.getStringExtra(ParentActivity.SELECTED_DAY);
         if(buttonValue != null){
             if(buttonValue.length()!=0) {
@@ -34,6 +41,13 @@ public class DayViewActivity extends ParentActivity {
                 calendar.set(Calendar.DAY_OF_MONTH, dayClicked);
             }
         }
+        //Setting calendar day of month to value selected by month view
+        setDayToView(calendar.get(Calendar.DAY_OF_MONTH));
+        //Setting local date
+        setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+        //setLocalDate(getDate());
+
         //Setting button text for week day 4, the selected day to view
         dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         selected_week_day4 = (Button) findViewById(R.id.selected_week_day4);
@@ -106,6 +120,15 @@ public class DayViewActivity extends ParentActivity {
                 viewDay(week_day7.getText());
             }
         });
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void setLocalDate(String ymd){
+        try {
+            date = LocalDate.parse(ymd);
+        }
+        catch (Exception DateTimeParseException){
+            date = LocalDate.now();
+        }
     }
     @Override
     protected void onStart() {

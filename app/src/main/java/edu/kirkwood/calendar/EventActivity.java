@@ -71,7 +71,6 @@ public class EventActivity extends ParentActivity {
             }
         });
     }
-
     @Override
     public void onStart(){
         super.onStart();
