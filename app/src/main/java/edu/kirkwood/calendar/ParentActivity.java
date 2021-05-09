@@ -11,14 +11,20 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Calendar;
+
 
 public class ParentActivity extends AppCompatActivity {
+    private Calendar cal;
     public static final String SELECTED_DAY = "edu.kirkwood.calendar.DATE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         openParentTools();
+        if(!cal.isSet(Calendar.DAY_OF_MONTH)) {
+            cal = Calendar.getInstance();
+        }
 
     }
     @Override
@@ -108,5 +114,12 @@ public class ParentActivity extends AppCompatActivity {
         String dayClicked =  (String)butText;
         intent.putExtra(SELECTED_DAY, dayClicked);
         startActivity(intent);
+    }
+    //Methods to set and get Calendar object
+    public Calendar getCal(){
+        return cal;
+    }
+    public void setCal(long m){
+        cal.setTimeInMillis(m);
     }
 }

@@ -12,20 +12,23 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import java.time.LocalDate;
+
 public class MainActivity extends ParentActivity {
     //Defining CalendarView and Textview
-    CalendarView calendar;
+    CalendarView simpleCalendarView;
     TextView date_view;
+    private LocalDate date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         openParentTools();
         //Getting CalendarView and TextView variables
-        calendar = (CalendarView) findViewById(R.id.calendar);
+        simpleCalendarView = (CalendarView) findViewById(R.id.calendar);
         date_view = (TextView) findViewById(R.id.date_view);
         //Setting date listener for the value of DAYS, MONTH, YEARS
-        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 //Stores the value of the date in a formatted String
