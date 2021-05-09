@@ -247,6 +247,5 @@ public class EventActivity extends ParentActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 }

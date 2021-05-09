@@ -22,12 +22,6 @@ public class DayViewActivity extends ParentActivity {
     static Button week_day6;
     static Button week_day7;
   
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public DayViewActivity() {
-        calendar = Calendar.getInstance();
-
-    }
-  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
