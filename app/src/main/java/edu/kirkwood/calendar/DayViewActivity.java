@@ -21,15 +21,25 @@ public class DayViewActivity extends ParentActivity {
     static Button week_day5;
     static Button week_day6;
     static Button week_day7;
+  
     @RequiresApi(api = Build.VERSION_CODES.O)
+    public DayViewActivity() {
+        calendar = Calendar.getInstance();
+
+    }
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_view);
         openParentTools();
+
         //Gets Calendar object
         Calendar calendar = Calendar.getInstance();
+
+        //Check for intent from week day button clicked
         Intent intent = getIntent();
+      
         //Get intent from selected day from month view
         int dayToView = intent.getIntExtra("dayOfMonth", calendar.get(Calendar.DAY_OF_MONTH));
         calendar.set(Calendar.DAY_OF_MONTH, dayToView);
