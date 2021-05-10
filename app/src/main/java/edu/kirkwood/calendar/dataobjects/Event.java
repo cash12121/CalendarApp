@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Event implements Serializable {
     private String title;
@@ -60,5 +61,21 @@ public class Event implements Serializable {
 
     public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public String getTimeString() {
+        String timeConcat = "";
+        String start;
+        String end;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        start = startTime.format(formatter);
+        end = endTime.format(formatter);
+
+        timeConcat = "Start Time: " + start + " , End Time: " + end;
+
+        return timeConcat;
     }
 }
