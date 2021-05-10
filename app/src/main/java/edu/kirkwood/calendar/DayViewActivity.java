@@ -13,15 +13,16 @@ import java.util.Calendar;
 public class DayViewActivity extends ParentActivity {
     private String dayValue;
     private int dayToView;
-    Button week_day1;
-    LocalDate date;
-    static Button week_day2;
-    static Button week_day3;
-    static Button selected_week_day4;
-    static Button week_day5;
-    static Button week_day6;
-    static Button week_day7;
+    private Button week_day1;
+    private Button week_day2;
+    private Button week_day3;
+    private Button selected_week_day4;
+    private Button week_day5;
+    private Button week_day6;
+    private Button week_day7;
+    LocalDate todayDate;
   
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,107 +34,90 @@ public class DayViewActivity extends ParentActivity {
 
         //Check for intent from week day button clicked
         Intent intent = getIntent();
-      
-        //Get intent from selected day from month view
-        int dayToView = intent.getIntExtra("dayOfMonth", calendar.get(Calendar.DAY_OF_MONTH));
-        calendar.set(Calendar.DAY_OF_MONTH, dayToView);
-        //Check for intent from week day button clicked
-        String buttonValue = intent.getStringExtra(ParentActivity.SELECTED_DAY);
-        if(buttonValue != null){
-            if(buttonValue.length()!=0) {
-                int dayClicked = Integer.parseInt(buttonValue);
-                calendar.set(Calendar.DAY_OF_MONTH, dayClicked);
-            }
-        }
-        //Setting calendar day of month to value selected by month view
-        setDayToView(calendar.get(Calendar.DAY_OF_MONTH));
-        //Setting local date
-        setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
-        //setLocalDate(getDate());
+        todayDate = (LocalDate) intent.getSerializableExtra("today");
+
+
+        //Setting button text for week day 1
+        week_day1 = findViewById(R.id.week_day1);
+        String day1Text = String.valueOf(todayDate.minusDays(3).getDayOfMonth());
+        week_day1.setText(day1Text);
+
+        //Setting button text for week day 2
+        week_day2 = (Button) findViewById(R.id.week_day2);
+        String day2Text = String.valueOf(todayDate.minusDays(2).getDayOfMonth());
+        week_day2.setText(day2Text);
+
+        //Setting button text for week day 3
+        week_day3 = (Button) findViewById(R.id.week_day3);
+        String day3Text = String.valueOf(todayDate.minusDays(1).getDayOfMonth());
+        week_day3.setText(day3Text);
 
         //Setting button text for week day 4, the selected day to view
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         selected_week_day4 = (Button) findViewById(R.id.selected_week_day4);
-        selected_week_day4.setText(dayValue);
-        //Setting button text for week day 3
-        calendar.roll(Calendar.DAY_OF_MONTH, -1);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day3 = (Button) findViewById(R.id.week_day3);
-        week_day3.setText(dayValue);
-        //Setting button text for week day 2
-        calendar.roll(Calendar.DAY_OF_MONTH, -1);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day2 = (Button) findViewById(R.id.week_day2);
-        week_day2.setText(dayValue);
-        //Setting button text for week day 1
-        calendar.roll(Calendar.DAY_OF_MONTH, -1);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day1 = (Button) findViewById(R.id.week_day1);
-        week_day1.setText(dayValue);
-        //Setting button text for week day 5
-        calendar.roll(Calendar.DAY_OF_MONTH, 4);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day5 = (Button) findViewById(R.id.week_day5);
-        week_day5.setText(dayValue);
-        //Setting button text for week day 6
-        calendar.roll(Calendar.DAY_OF_MONTH, 1);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day6 = (Button) findViewById(R.id.week_day6);
-        week_day6.setText(dayValue);
-        //Setting button text for week day 7
-        calendar.roll(Calendar.DAY_OF_MONTH, 1);
-        dayValue = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-        week_day7 = (Button) findViewById(R.id.week_day7);
-        week_day7.setText(dayValue);
+        selected_week_day4.setText(String.valueOf(todayDate.getDayOfMonth()));
 
+        //Setting button text for week day 5
+        week_day5 = (Button) findViewById(R.id.week_day5);
+        String day5Text = String.valueOf(todayDate.plusDays(1).getDayOfMonth());
+        week_day5.setText(day5Text);
+
+        //Setting button text for week day 6
+        week_day6 = (Button) findViewById(R.id.week_day6);
+        String day6Text = String.valueOf(todayDate.plusDays(2).getDayOfMonth());
+        week_day6.setText(day6Text);
+
+        //Setting button text for week day 7
+        week_day7 = (Button) findViewById(R.id.week_day7);
+        String day7Text = String.valueOf(todayDate.plusDays(3).getDayOfMonth());
+        week_day7.setText(day7Text);
+
+
+        setDayButtonListeners();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setDayButtonListeners() {
         //Setting button listeners
         week_day1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                viewDay(week_day1.getText());
+                viewDay(todayDate.minusDays(3));
             }
         });
         week_day2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDay(week_day2.getText());
+                viewDay(todayDate.minusDays(2));
             }
         });
         week_day3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDay(week_day3.getText());
+                viewDay(todayDate.minusDays(1));
             }
         });
         week_day5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDay(week_day5.getText());
+                viewDay(todayDate.plusDays(1));
             }
         });
         week_day6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDay(week_day6.getText());
+                viewDay(todayDate.plusDays(2));
             }
         });
         week_day7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDay(week_day7.getText());
+                viewDay(todayDate.plusDays(3));
             }
         });
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void setLocalDate(String ymd){
-        try {
-            date = LocalDate.parse(ymd);
-        }
-        catch (Exception DateTimeParseException){
-            date = LocalDate.now();
-        }
-    }
+
     @Override
     protected void onStart() {
         super.onStart();
