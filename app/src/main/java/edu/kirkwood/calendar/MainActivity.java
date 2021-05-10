@@ -53,10 +53,12 @@ public class MainActivity extends ParentActivity {
                 //Adding 1 in month because index starts with 0
                 setDate(dayOfMonth, month, year);
                 //setLocalDate(getDate());
-                dateText = year+"-"+month+"-"+dayOfMonth;
+                dateText = year+"-"+ (month + 1) +"-"+dayOfMonth;
                 setDayToView(dayOfMonth);
                 //Set date in TextView, ie display
                 date_view.setText(dateText);
+                LocalDate date = LocalDate.of(year, month + 1, dayOfMonth);
+                viewDay(date);
 
             }
         });

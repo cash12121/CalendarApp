@@ -2,13 +2,17 @@ package edu.kirkwood.calendar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.time.LocalDate;
 
 
 public class ParentActivity extends AppCompatActivity {
@@ -33,6 +37,7 @@ public class ParentActivity extends AppCompatActivity {
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,7 +64,7 @@ public class ParentActivity extends AppCompatActivity {
             case R.id.calendar_view:
                 // User chose the "View" item, show the calendar view select UI
                 if (ir == 1) {
-                    openDayActivity();
+                    viewDay(LocalDate.now());
                 } else if (ir == 2) {
                     openMonthActivity();
                 } else {
@@ -106,11 +111,12 @@ public class ParentActivity extends AppCompatActivity {
     }
 
     //Method to create an Intent to open DayViewActivity with changed
-    public void viewDay(CharSequence butText) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void viewDay(LocalDate date) {
         Intent intent = new Intent(this, DayViewActivity.class);
         Button clicked = new Button(this);
-        String dayClicked = (String) butText;
-        intent.putExtra(SELECTED_DAY, dayClicked);
+
+        intent.putExtra("today", date);
         startActivity(intent);
     }
     //Methods to set and get the day user wants to view
